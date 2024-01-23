@@ -36,15 +36,6 @@ API Routes
 
 All API routes are prefixed with "/api". You can define and extend the routes in the `MainRouter.js` file.
 
-Contributing
-------------
-
-Feel free to contribute to the project by opening issues or submitting pull requests.
-
-License
--------
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Real-Time Product Updates with Socket.io and MongoDB
 ====================================================
