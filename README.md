@@ -1,3 +1,51 @@
+Express.js Application with Compression Middleware
+==================================================
+
+This is a basic Express.js application with compression middleware to improve response time. The application also includes a main router for handling API routes.
+
+Getting Started
+---------------
+
+1.  Install the necessary dependencies:
+
+    npm install
+
+3.  Start the Express server:
+
+    npm start
+
+The server will be running on [http://localhost:3000](http://localhost:3000) by default.
+
+Dependencies
+------------
+
+*   [Express](https://expressjs.com/): Fast, unopinionated, minimalist web framework for Node.js.
+*   [Compression](https://www.npmjs.com/package/compression): Middleware for compressing responses.
+
+Application Structure
+---------------------
+
+*   **Main Router:** The application includes a main router (`MainRouter.js`) for handling API routes. You can find and customize the routes in this file.
+*   **Middleware:**
+    *   `compression`: Used to compress responses, reducing the size of data sent to clients and improving performance.
+    *   `express.urlencoded` and `express.json`: Middleware for parsing incoming request bodies.
+*   **Default Route:** The default route ("/") responds with a simple message: "Hello, My App!"
+
+API Routes
+----------
+
+All API routes are prefixed with "/api". You can define and extend the routes in the `MainRouter.js` file.
+
+Contributing
+------------
+
+Feel free to contribute to the project by opening issues or submitting pull requests.
+
+License
+-------
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 Real-Time Product Updates with Socket.io and MongoDB
 ====================================================
 
@@ -17,7 +65,7 @@ Installation
 
 1.  Clone the repository:
 
-    git clone https://github.com/your-username/real-time-product-updates.git
+    git clone[ https://github.com/your-username/real-time-product-updates.git](https://github.com/dxtaner/e-commerce-backend-nodejs)
     cd real-time-product-updates
 
 3.  Install dependencies:
