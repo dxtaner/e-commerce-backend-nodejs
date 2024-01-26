@@ -1,6 +1,6 @@
 // validators/UserValidator.js
 const { body, param, query, validationResult } = require("express-validator");
-const User = require("../model/User");
+const User = require("../models/User");
 
 const loginValidator = [
   body("email").isEmail().withMessage("Invalid email address"),
