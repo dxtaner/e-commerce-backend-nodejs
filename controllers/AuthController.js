@@ -2,7 +2,7 @@
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../model/User");
+const User = require("../models/User");
 const emailService = require("../adapters/MailAdapter"); // Adjust the path as needed
 
 require("dotenv").config();

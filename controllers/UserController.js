@@ -1,6 +1,6 @@
 // controllers/UserController.js
 
-const User = require("../model/User");
+const User = require("../models/User");
 
 const getUser = async (req, res) => {
   try {
