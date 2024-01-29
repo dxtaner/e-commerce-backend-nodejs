@@ -70,6 +70,75 @@ Installation
 
 Replace `your_mongodb_connection_string` with the actual connection string for your MongoDB database.
 
+Router Configuration
+====================
+
+This repository contains a set of routers built using Express.js for handling various endpoints of an application. Below is an overview of each router and its purpose:
+
+Routers
+-------
+
+1.  ### Auth Router
+    
+    Path: `/auth`
+    
+    Handles authentication-related endpoints.
+    
+2.  ### User Router
+    
+    Path: `/user`
+    
+    Handles user-related endpoints, requiring authentication.
+    
+3.  ### Product Router
+    
+    Path: `/product`
+    
+    Manages endpoints related to product operations, requiring authentication.
+    
+4.  ### Cart Item Router
+    
+    Path: `/cartitem`
+    
+    Responsible for managing shopping cart items, requiring authentication.
+    
+5.  ### File Router
+    
+    Path: `/file`
+    
+    Manages file-related endpoints, requiring authentication.
+    
+6.  ### Search Router
+    
+    Path: `/search`
+    
+    Handles search functionalities.
+    
+
+Middleware
+----------
+
+*   ### AuthValidator
+    
+    Location: `../validators/AuthValidator.js`
+    
+    Provides authentication checks for routes requiring authorization. Used as middleware for routes handling user, product, cart item, and file operations.
+    
+
+Usage
+-----
+
+1.  Clone the repository.
+2.  Install dependencies using `npm install`.
+3.  Start the server using `npm start`.
+4.  Access various endpoints using the provided paths and ensure authentication where necessary.
+
+Authentication
+--------------
+
+Authentication is required for routes handling sensitive operations such as user management, product management, cart operations, and file handling. The `AuthValidator` middleware ensures that only authenticated users can access these routes.
+
+
 Usage
 -----
 
