@@ -10,9 +10,9 @@ const searchRouter = require("./SearchRouter.js");
 
 const AuthValidator = require("../validators/AuthValidator.js");
 
-router.use("/product", AuthValidator.authCheck, productRouter);
 router.use("/auth", authRouter);
 router.use("/user", AuthValidator.authCheck, userRouter);
+router.use("/product", AuthValidator.authCheck, productRouter);
 router.use("/cartitem", AuthValidator.authCheck, cartItemRouter);
 router.use("/file", AuthValidator.authCheck, fileRouter);
 router.use("/search", searchRouter);

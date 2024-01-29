@@ -1,6 +1,6 @@
 const { Server } = require("socket.io");
 const DatabaseAdapter = require("./adapters/DatabaseAdapter.js");
-const Product = require("./model/Product.js");
+const Product = require("./models/Product.js");
 const app = require("./app.js");
 
 require("dotenv").config();
