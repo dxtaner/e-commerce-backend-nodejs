@@ -9,4 +9,6 @@ router.post("/upload", upload.single("file"), FileController.uploadFile);
 
 router.get("/:filename", FileController.getFile);
 
+router.get("/", FileController.getAllFiles);
+
 module.exports = router;
