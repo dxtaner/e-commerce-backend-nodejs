@@ -8,8 +8,15 @@ const UserValidator = require("../validators/UserValidator.js");
 router.get(
   "/:objectId",
   UserValidator.getUserValidator,
+  UserValidator.validate,
   UserController.getUser
 );
-router.get("/", UserController.getAllUsers);
+
+router.get(
+  "/",
+  UserValidator.getAllUsersValidator,
+  UserValidator.validate,
+  UserController.getAllUsers
+);
 
 module.exports = router;
