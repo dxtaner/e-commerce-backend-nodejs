@@ -124,6 +124,28 @@ Middleware
     
     Provides authentication checks for routes requiring authorization. Used as middleware for routes handling user, product, cart item, and file operations.
     
+## Auth Router
+This router handles authentication-related endpoints.
+
+### Endpoints
+
+1. **Login**
+   - Path: `/auth/login`
+   - Method: `POST`
+   - Description: Authenticates a user.
+   - Request Body:
+     - Requires validation using `UserValidator.loginValidator`.
+     - Should include user credentials (e.g., email and password).
+   - Controller: `AuthController.loginController`
+
+2. **Register**
+   - Path: `/auth/register`
+   - Method: `POST`
+   - Description: Registers a new user.
+   - Request Body:
+     - Requires validation using `UserValidator.registerValidator`.
+     - Should include user details (e.g., username, email, password).
+   - Controller: `AuthController.registerController`
 
 Usage
 -----
