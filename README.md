@@ -147,6 +147,32 @@ This router handles authentication-related endpoints.
      - Should include user details (e.g., username, email, password).
    - Controller: `AuthController.registerController`
 
+## User Router
+
+This router handles user-related endpoints.
+
+### Endpoints
+
+1. **Get User**
+   - Path: `/user/:objectId`
+   - Method: `GET`
+   - Description: Retrieves a specific user by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the user.
+   - Middleware:
+     - `UserValidator.getUserValidator`: Validates the request parameters.
+     - `UserValidator.validate`: Additional validation if needed.
+   - Controller: `UserController.getUser`
+
+2. **Get All Users**
+   - Path: `/user`
+   - Method: `GET`
+   - Description: Retrieves all users.
+   - Middleware:
+     - `UserValidator.getAllUsersValidator`: Validates the request.
+     - `UserValidator.validate`: Additional validation if needed.
+   - Controller: `UserController.getAllUsers`
+
 Usage
 -----
 
