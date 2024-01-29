@@ -16,4 +16,10 @@ router.get(
   CartItemController.getCartItems
 );
 
+router.get(
+  "/all",
+  CartItemValidator.getItemsValidator,
+  CartItemController.getAllItems
+);
+
 module.exports = router;
