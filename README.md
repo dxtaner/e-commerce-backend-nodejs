@@ -70,6 +70,246 @@ Installation
 
 Replace `your_mongodb_connection_string` with the actual connection string for your MongoDB database.
 
+Router Configuration
+====================
+
+This repository contains a set of routers built using Express.js for handling various endpoints of an application. Below is an overview of each router and its purpose:
+
+Routers
+-------
+
+1.  ### Auth Router
+    
+    Path: `/auth`
+    
+    Handles authentication-related endpoints.
+    
+2.  ### User Router
+    
+    Path: `/user`
+    
+    Handles user-related endpoints, requiring authentication.
+    
+3.  ### Product Router
+    
+    Path: `/product`
+    
+    Manages endpoints related to product operations, requiring authentication.
+    
+4.  ### Cart Item Router
+    
+    Path: `/cartitem`
+    
+    Responsible for managing shopping cart items, requiring authentication.
+    
+5.  ### File Router
+    
+    Path: `/file`
+    
+    Manages file-related endpoints, requiring authentication.
+    
+6.  ### Search Router
+    
+    Path: `/search`
+    
+    Handles search functionalities.
+    
+
+Middleware
+----------
+
+*   ### AuthValidator
+    
+    Location: `../validators/AuthValidator.js`
+    
+    Provides authentication checks for routes requiring authorization. Used as middleware for routes handling user, product, cart item, and file operations.
+    
+## Auth Router
+This router handles authentication-related endpoints.
+
+### Endpoints
+
+1. **Login**
+   - Path: `/auth/login`
+   - Method: `POST`
+   - Description: Authenticates a user.
+   - Request Body:
+     - Requires validation using `UserValidator.loginValidator`.
+     - Should include user credentials (e.g., email and password).
+   - Controller: `AuthController.loginController`
+
+2. **Register**
+   - Path: `/auth/register`
+   - Method: `POST`
+   - Description: Registers a new user.
+   - Request Body:
+     - Requires validation using `UserValidator.registerValidator`.
+     - Should include user details (e.g., username, email, password).
+   - Controller: `AuthController.registerController`
+
+## User Router
+
+This router handles user-related endpoints.
+
+### Endpoints
+
+1. **Get User**
+   - Path: `/user/:objectId`
+   - Method: `GET`
+   - Description: Retrieves a specific user by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the user.
+   - Middleware:
+     - `UserValidator.getUserValidator`: Validates the request parameters.
+     - `UserValidator.validate`: Additional validation if needed.
+   - Controller: `UserController.getUser`
+
+2. **Get All Users**
+   - Path: `/user`
+   - Method: `GET`
+   - Description: Retrieves all users.
+   - Middleware:
+     - `UserValidator.getAllUsersValidator`: Validates the request.
+     - `UserValidator.validate`: Additional validation if needed.
+   - Controller: `UserController.getAllUsers`
+
+## Product Router
+
+This router handles product-related endpoints.
+
+### Endpoints
+
+1. **Add Product**
+   - Path: `/product/`
+   - Method: `POST`
+   - Description: Adds a new product.
+   - Request Body:
+     - Requires validation using `ProductValidator.addProductValidator`.
+     - Should include product details.
+   - Controller: `ProductController.addProductController`
+
+2. **Edit Product**
+   - Path: `/product/:objectId`
+   - Method: `PUT`
+   - Description: Updates an existing product.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product to be edited.
+   - Request Body:
+     - Requires validation using `ProductValidator.editProductValidator`.
+     - Should include updated product details.
+   - Controller: `ProductController.editProductController`
+
+3. **Get All Products**
+   - Path: `/product/`
+   - Method: `GET`
+   - Description: Retrieves all products.
+   - Controller: `ProductController.getAllProductController`
+
+4. **Get Product**
+   - Path: `/product/:objectId`
+   - Method: `GET`
+   - Description: Retrieves a specific product by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product.
+   - Middleware:
+     - `ProductValidator.getProductValidator`: Validates the request parameters.
+   - Controller: `ProductController.getProductController`
+
+5. **Delete Product**
+   - Path: `/product/:objectId`
+   - Method: `DELETE`
+   - Description: Deletes a specific product by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product to be deleted.
+   - Middleware:
+     - `ProductValidator.deleteProductValidator`: Validates the request parameters.
+   - Controller: `ProductController.deleteProductController`
+
+## Cart Item Router
+
+This router handles cart item-related endpoints.
+
+### Endpoints
+
+1. **Add Item to Cart**
+   - Path: `/cartitem/`
+   - Method: `POST`
+   - Description: Adds an item to the cart.
+   - Request Body:
+     - Requires validation using `CartItemValidator.addItemToCartValidator`.
+     - Should include item details.
+   - Controller: `CartItemController.addItemToCart`
+
+2. **Get Cart Items**
+   - Path: `/cartitem/`
+   - Method: `GET`
+   - Description: Retrieves items from the cart.
+   - Middleware:
+     - `CartItemValidator.getItemsValidator`: Validates the request.
+   - Controller: `CartItemController.getCartItems`
+
+3. **Get All Items**
+   - Path: `/cartitem/all`
+   - Method: `GET`
+   - Description: Retrieves all items from the cart.
+   - Middleware:
+     - `CartItemValidator.getItemsValidator`: Validates the request.
+   - Controller: `CartItemController.getAllItems`
+
+## File Router
+
+This router handles file-related endpoints.
+
+### Endpoints
+
+1. **Upload File**
+   - Path: `/file/upload`
+   - Method: `POST`
+   - Description: Uploads a file.
+   - Request Body:
+     - Requires a single file upload using `multipart/form-data` format.
+   - Controller: `FileController.uploadFile`
+
+2. **Get File**
+   - Path: `/file/:filename`
+   - Method: `GET`
+   - Description: Retrieves a specific file by filename.
+   - Request Parameters:
+     - `filename`: The name of the file to be retrieved.
+   - Controller: `FileController.getFile`
+
+3. **Get All Files**
+   - Path: `/file/`
+   - Method: `GET`
+   - Description: Retrieves metadata for all files.
+   - Controller: `FileController.getAllFiles`
+
+## Search Router
+
+This router handles search-related endpoints.
+
+### Endpoints
+
+1. **Search**
+   - Path: `/search/`
+   - Method: `GET`
+   - Description: Performs a search operation.
+   - Controller: `SearchController.searchController`
+
+Usage
+-----
+
+1.  Clone the repository.
+2.  Install dependencies using `npm install`.
+3.  Start the server using `npm start`.
+4.  Access various endpoints using the provided paths and ensure authentication where necessary.
+
+Authentication
+--------------
+
+Authentication is required for routes handling sensitive operations such as user management, product management, cart operations, and file handling. The `AuthValidator` middleware ensures that only authenticated users can access these routes.
+
+
 Usage
 -----
 
