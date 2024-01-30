@@ -173,6 +173,58 @@ This router handles user-related endpoints.
      - `UserValidator.validate`: Additional validation if needed.
    - Controller: `UserController.getAllUsers`
 
+## Product Router
+
+This router handles product-related endpoints.
+
+### Endpoints
+
+1. **Add Product**
+   - Path: `/product/`
+   - Method: `POST`
+   - Description: Adds a new product.
+   - Request Body:
+     - Requires validation using `ProductValidator.addProductValidator`.
+     - Should include product details.
+   - Controller: `ProductController.addProductController`
+
+2. **Edit Product**
+   - Path: `/product/:objectId`
+   - Method: `PUT`
+   - Description: Updates an existing product.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product to be edited.
+   - Request Body:
+     - Requires validation using `ProductValidator.editProductValidator`.
+     - Should include updated product details.
+   - Controller: `ProductController.editProductController`
+
+3. **Get All Products**
+   - Path: `/product/`
+   - Method: `GET`
+   - Description: Retrieves all products.
+   - Controller: `ProductController.getAllProductController`
+
+4. **Get Product**
+   - Path: `/product/:objectId`
+   - Method: `GET`
+   - Description: Retrieves a specific product by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product.
+   - Middleware:
+     - `ProductValidator.getProductValidator`: Validates the request parameters.
+   - Controller: `ProductController.getProductController`
+
+5. **Delete Product**
+   - Path: `/product/:objectId`
+   - Method: `DELETE`
+   - Description: Deletes a specific product by object ID.
+   - Request Parameters:
+     - `objectId`: The unique identifier of the product to be deleted.
+   - Middleware:
+     - `ProductValidator.deleteProductValidator`: Validates the request parameters.
+   - Controller: `ProductController.deleteProductController`
+
 Usage
 -----
 
