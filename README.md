@@ -256,6 +256,34 @@ This router handles cart item-related endpoints.
      - `CartItemValidator.getItemsValidator`: Validates the request.
    - Controller: `CartItemController.getAllItems`
 
+## File Router
+
+This router handles file-related endpoints.
+
+### Endpoints
+
+1. **Upload File**
+   - Path: `/file/upload`
+   - Method: `POST`
+   - Description: Uploads a file.
+   - Request Body:
+     - Requires a single file upload using `multipart/form-data` format.
+   - Controller: `FileController.uploadFile`
+
+2. **Get File**
+   - Path: `/file/:filename`
+   - Method: `GET`
+   - Description: Retrieves a specific file by filename.
+   - Request Parameters:
+     - `filename`: The name of the file to be retrieved.
+   - Controller: `FileController.getFile`
+
+3. **Get All Files**
+   - Path: `/file/`
+   - Method: `GET`
+   - Description: Retrieves metadata for all files.
+   - Controller: `FileController.getAllFiles`
+
 Usage
 -----
 
