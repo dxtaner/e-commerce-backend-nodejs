@@ -284,6 +284,18 @@ This router handles file-related endpoints.
    - Description: Retrieves metadata for all files.
    - Controller: `FileController.getAllFiles`
 
+## Search Router
+
+This router handles search-related endpoints.
+
+### Endpoints
+
+1. **Search**
+   - Path: `/search/`
+   - Method: `GET`
+   - Description: Performs a search operation.
+   - Controller: `SearchController.searchController`
+
 Usage
 -----
 
