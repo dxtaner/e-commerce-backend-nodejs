@@ -225,6 +225,37 @@ This router handles product-related endpoints.
      - `ProductValidator.deleteProductValidator`: Validates the request parameters.
    - Controller: `ProductController.deleteProductController`
 
+## Cart Item Router
+
+This router handles cart item-related endpoints.
+
+### Endpoints
+
+1. **Add Item to Cart**
+   - Path: `/cartitem/`
+   - Method: `POST`
+   - Description: Adds an item to the cart.
+   - Request Body:
+     - Requires validation using `CartItemValidator.addItemToCartValidator`.
+     - Should include item details.
+   - Controller: `CartItemController.addItemToCart`
+
+2. **Get Cart Items**
+   - Path: `/cartitem/`
+   - Method: `GET`
+   - Description: Retrieves items from the cart.
+   - Middleware:
+     - `CartItemValidator.getItemsValidator`: Validates the request.
+   - Controller: `CartItemController.getCartItems`
+
+3. **Get All Items**
+   - Path: `/cartitem/all`
+   - Method: `GET`
+   - Description: Retrieves all items from the cart.
+   - Middleware:
+     - `CartItemValidator.getItemsValidator`: Validates the request.
+   - Controller: `CartItemController.getAllItems`
+
 Usage
 -----
 
